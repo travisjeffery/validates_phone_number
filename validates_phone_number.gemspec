@@ -8,8 +8,8 @@ Gem::Specification.new do |s|
   s.authors     = ["Travis Jeffery"]
   s.email       = ["t@travisjeffery.com"]
   s.homepage    = ""
-  s.summary     = %q{Adds validation methods to ActiveModel for validating dates and times.}
-  s.description = %q{Adds validation methods to ActiveModel for validating dates and times.}
+  s.summary     = %q{Adds validation methods to ActiveModel for validating phone numbers.}
+  s.description = %q{Adds validation methods to ActiveModel for validating phone numbers.}
 
   s.rubyforge_project = "validates_phone_number"
 

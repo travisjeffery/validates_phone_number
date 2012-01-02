@@ -1,6 +1,7 @@
 # Validates Phone Number
 
-Validate phone numbers in your Rails project.
+validates_phone_number adds validation methods to ActiveModel for validating
+phone numbers.
 
 For example, given a User model with a phone number attribute of `phone number`
 that's a string, see if a given record has a valid phone number like so:
