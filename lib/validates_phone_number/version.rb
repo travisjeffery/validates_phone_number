@@ -1,0 +1,3 @@
+module ValidatesPhoneNumber
+  VERSION = "0.0.1"
+end
