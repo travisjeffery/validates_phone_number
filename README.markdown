@@ -5,13 +5,32 @@
 `validates_phone_number` adds validation methods to ActiveModel for validating
 phone numbers.
 
-For example, given a User model with a phone number attribute of `phone number`
+### Basic Usage
+
+Given a User model with a phone number attribute of `phone number`
 that's a string, see if a given record has a valid phone number like so:
 
 ```
   class Person < ActiveRecord::Base
-    validates :phone_number, :phone_number => true
+    validates :mobile, :phone_number => true
   end
 ```
 
-You can also specify the usual options like `allow_nil`, and `format`.
+### Format/Match by Regular Expression
+
+You can specify that a number matches a regular expression by using the
+`format` option:
+
+```
+  class Person < ActiveRecord::Base
+    validates :mobile, :phone_number => {:format => /\d{3}-\d{3}-\d{4}/}
+  end
+```
+
+### Allow Nil
+
+```
+  class Person < ActiveRecord::Base
+    validates :mobile, :phone_number => {:allow_nil => true}
+  end
+```
