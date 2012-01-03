@@ -1,9 +1,25 @@
+unless Kernel.respond_to?(:require_relative)
+  module Kernel
+    def require_relative(path)
+      require File.join(File.dirname(caller[0]), path.to_str)
+    end
+  end
+end
+
 ENV['RAILS_ENV'] = 'minitest'
-require 'minitest/autorun'
+begin
+  require 'minitest/autorun'
+rescue LoadError
+  require 'rubygems'
+  require 'minitest/unit'
+  MiniTest::Unit.autorun
+end
+
 require 'active_model'
 require 'active_model/validations'
 require 'active_record'
 require 'action_view'
+
 require_relative '../lib/validates_phone_number'
 
 ActiveRecord::Base.establish_connection({:adapter => 'sqlite3', :database => ':memory:'})
