@@ -47,7 +47,7 @@ class TestValidator < MiniTest::Unit::TestCase
     assert @person.valid?
   end
 
-  def test_specify_message
+  def test_specifying_message
     Person.validates :phone_number, :phone_number => {:message => "invalid and can only be attributable to human error"}
     @person.phone_number = nil
     @person.valid?

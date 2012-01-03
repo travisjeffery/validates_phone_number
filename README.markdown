@@ -16,6 +16,8 @@ that's a string, see if a given record has a valid phone number like so:
   end
 ```
 
+## Options
+
 ### Message
 
 Specify the message that's added to the errors collection by using the
