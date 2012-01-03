@@ -23,25 +23,25 @@ class TestValidator < MiniTest::Unit::TestCase
     assert @person.valid?
   end
 
-  def test_allow_nil_option_off
+  def test_allow_nil_option_defaults_to_false
     Person.validates :phone_number, :phone_number => true
     @person.phone_number = nil
     assert !@person.valid?
   end
 
-  def test_allow_nil_option_on
+  def test_nil_is_record_record_if_allow_nil
     Person.validates :phone_number, :phone_number => {:allow_nil => true}
     @person.phone_number = nil
     assert @person.valid?
   end
 
-  def test_valid_record_by_format_option_off
+  def test_invalid_record_by_format_option
     Person.validates :phone_number, :phone_number => true
     @person.phone_number = "555^555^555^5555"
     assert !@person.valid?
   end
 
-  def test_valid_record_by_format_option_on
+  def test_valid_record_by_format_option
     Person.validates :phone_number, :phone_number => {:format => /(\d+\^){3}\d+/}
     @person.phone_number = "555^555^555^5555"
     assert @person.valid?
