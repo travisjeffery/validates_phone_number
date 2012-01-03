@@ -46,5 +46,13 @@ class TestValidator < MiniTest::Unit::TestCase
     @person.phone_number = "555^555^555^5555"
     assert @person.valid?
   end
+
+  def test_specify_message
+    Person.validates :phone_number, :phone_number => {:message => "invalid and can only be attributable to human error"}
+    @person.phone_number = nil
+    @person.valid?
+    assert_equal 1, @person.errors.size
+    assert_match /invalid and can only be attributable to human error/, @person.errors.full_messages.first
+  end
 end
 
