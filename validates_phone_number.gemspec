@@ -20,7 +20,4 @@ Gem::Specification.new do |s|
 
   s.add_development_dependency "minitest", '2.10.0'
   s.add_development_dependency "rails", '3.1.0'
-  s.add_development_dependency "phone", '1.1'
-
-  s.add_runtime_dependency "phone", '1.1'
 end

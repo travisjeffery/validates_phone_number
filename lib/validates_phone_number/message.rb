@@ -1,6 +1,6 @@
 module ValidatesPhoneNumber
   module Message
-    DEFAULT_ERROR_MESSAGE = "%s is not a valid"
+    DEFAULT_ERROR_MESSAGE = "%s is not valid"
 
     private
 

@@ -16,11 +16,13 @@ class Person < ActiveRecord::Base
 end
 ```
 
+By default, both 10 and 7 digit numbers are valid.
+
 ## Options
 
 ### Message
 
-Specify the message that's added to the errors collection by using the
+Set the message that's added to the errors collection by using the
 `message` option:
 
 ```ruby
@@ -45,5 +47,25 @@ end
 ```ruby
 class Person < ActiveRecord::Base
   validates :mobile, :phone_number => {:allow_nil => true}
+end
+```
+
+### Seven Digits
+
+I.e. 555-5555
+
+```ruby
+class Person < ActiveRecord::Base
+  validates :mobile, :phone_number => {:seven_digits => true}
+end
+
+```
+### Ten Digits
+
+I.e. (555)-555-5555
+
+```ruby
+class Person < ActiveRecord::Base
+  validates :mobile, :phone_number => {:ten_digits => true}
 end
 ```
