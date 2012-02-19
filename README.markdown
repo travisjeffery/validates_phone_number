@@ -69,3 +69,12 @@ class Person < ActiveRecord::Base
   validates :mobile, :phone_number => {:allow_nil => true}
 end
 ```
+
+## Self-Promotion
+
+Like validates\_phone\_number? Follow the project on
+[GitHub](https://github.com/travisjeffery/validates_phone_number). 
+
+You should follow [travisjeffery](http://travisjeffery.com) on
+[GitHub](https://github.com/travisjeffery) and
+[Twitter](http://twitter.com/travisjeffery) too. Thanks!
