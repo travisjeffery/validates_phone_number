@@ -109,5 +109,15 @@ class TestValidator < MiniTest::Unit::TestCase
     @person.phone_number = nil
     assert @person.valid?
   end
+
+  def def test_allow_blank_validates_blank_phone_number
+    Person.validates :phone_number, :phone_number => {:allow_blank => true}
+
+    @person.phone_number = nil
+    assert @person.valid?
+
+    @person.phone_number = ""
+    assert @person.valid?
+  end
 end
 

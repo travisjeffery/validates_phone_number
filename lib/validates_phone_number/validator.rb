@@ -9,6 +9,7 @@ module ValidatesPhoneNumber
       @default = options.keys.size == 1
       @type = options.delete(:type) || :string
       @allow_nil = options.delete(:allow_nil)
+      @allow_blank = options.delete(:allow_blank)
       @format = options.delete(:format)
       @message = options.delete(:message)
       @ten_digits = options.delete(:ten_digits)
@@ -19,6 +20,7 @@ module ValidatesPhoneNumber
 
     def validate_each record, attr_name, value
       return if @allow_nil && value.nil?
+      return if @allow_blank && value.blank?
       return if value =~ @format
       return if value =~ TEN_DIGITS if @ten_digits
       return if value =~ SEVEN_DIGITS if @seven_digits
