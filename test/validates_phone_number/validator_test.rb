@@ -71,6 +71,14 @@ class TestValidator < MiniTest::Unit::TestCase
     assert @person.valid?
   end
 
+  def test_validates_ten_or_seven_digit_number
+    Person.validates :phone_number, :phone_number => {:ten_digits => true, :seven_digits => true}
+    @person.phone_number = "555-5555"
+    assert @person.valid?
+    @person.phone_number = "555.555.5555"
+    assert @person.valid?
+  end
+
   def test_validates_seven_digit_number
     Person.validates :phone_number, :phone_number => {:seven_digits => true}
     @person.phone_number = "555-5555"
