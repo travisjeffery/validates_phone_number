@@ -22,7 +22,7 @@ By default, both 10 and 7 digit numbers are valid.
 
 ### Seven Digits
 
-I.e. 555-5555
+Example: 555-5555, 555.5555, 1234567, etc.
 
 ```ruby
 class Person < ActiveRecord::Base
@@ -32,7 +32,7 @@ end
 ```
 ### Ten Digits
 
-I.e. (555)-555-5555
+Example: (555)-555-5555, 555.555.5555, 1234567890, etc.
 
 ```ruby
 class Person < ActiveRecord::Base
@@ -67,6 +67,22 @@ end
 ```ruby
 class Person < ActiveRecord::Base
   validates :mobile, :phone_number => {:allow_nil => true}
+end
+```
+
+### Allow Blank
+
+```ruby
+class Person < ActiveRecord::Base
+  validates :mobile, :phone_number => {:allow_blank => true}
+end
+```
+
+### Multiple
+
+```ruby
+class Person < ActiveRecord::Base
+  validates :mobile, :phone_number => {:ten_digits => true, :seven_digits => true, :allow_blank => true, :message => "Phone number must be either seven or digits in length, or blank."}
 end
 ```
 
