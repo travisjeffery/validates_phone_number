@@ -2,9 +2,9 @@ source "http://rubygems.org"
 
 gemspec
 
-gem 'rails', '3.1.0'
-gem 'minitest', '2.10.0'
+gem 'rails', '4.0.0'
 
-group :active_record do
+group :development, :test do 
+  gem 'minitest', '4.2'
   gem 'sqlite3-ruby', :require => 'sqlite3'
 end
